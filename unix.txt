@@ -1,0 +1,22 @@
+Unix notes
+Is a text editor. Is a computer. how to comunicate with your computer without the user interface.When the computer first started, everything in the computer had to be done in the command line. Using the command line is much faster than manually dragging and dropping files and folders and lets you do much more. You can use Unix to manipulate data on your computers such as files and folders through commands.
+
+ 
+Unix
+1. How do you create a folder? mkdir name
+2. How do see where you are? pwd
+3. How do you list the files under certian directory? ls
+4. how do you change to the previous directory? cd ..
+
+
+Commands: 
+pwd
+ls
+mkdir
+cd
+cd ..
+touch
+rm
+~
+rm -rf directory name
+

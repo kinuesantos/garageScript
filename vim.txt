@@ -1,0 +1,23 @@
+Vim Notes
+
+ : normal - h, j, k, l, left, down, up, right
+insert: i, I, A, a, o, O
+{ down } up w,move to next work  
+b move to previous,
+s deletes the character that you're on and puts you in insert mode, 
+D delete charachter dd delete the current line, P paste 
+gg beginning of line, 
+G end of line #G takes you to end of the line
+:w to save 
+:q exit or quit 
+:q! warning edited, made changes sure u want to exit :wq save and exit
+gg - takes to the top of the file
+GG - takes you to the bottom of the file
+ 
+ 
+ Vim
+ 1. how do you go to the end of line? G
+ 2. How do you quit and save? :wq
+ 3. how do you go left, down, up, right? h,j,k,l
+ 4. How do you exit without saving? :q!
+

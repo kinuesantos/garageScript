@@ -1,0 +1,24 @@
+Git notes:
+software that anables you to track the version of a file.(version control). Where you save diferent versions of a file.
+ 
+GIT 1
+ git init: initiation start the repository 
+ git add: stages a change
+ git status: shows the changes since last commit
+ git commit: save staged changes
+
+GIT 2
+ git checkout -b 'name of new brach': to make a new branch
+ git checkout "id": takes you to specific commit
+ branch: is a group of commits
+ ls: list of files
+ rebase: merge two branches
+ git log: shows you all the commits
+ git branch 'name of branch': it will take you to the last commit in that specific branch
+ 
+ To access a remote file
+ git remote X home/k/notes
+ git fetch X
+ 
+ Functions 
+
