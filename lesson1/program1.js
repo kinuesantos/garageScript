@@ -1,6 +1,5 @@
-const myfunction= (a,b)=>{
-  c= a+b;
-  return c;
+const adding= (a,b)=>{
+  total= a+b;
+  return total;
 }
-module.exports=myfunction;
-console.log(myfunction(5,10));
+module.exports=adding;
