@@ -3,16 +3,14 @@
 const f = require('fs');
 
 const read = (err,files)=>{
-  const notme=()=>{
     let names = '';
-    files.forEach((e) => {
-      if(e !== 'kinue'){
-        names = '\n' + names + '\n' + e;
+    const find= (e)=>{
+      if(e !=='kinue'){
+        names = names + e + '\n';
       }
-    }); 
-    return names;
-  }
-  console.log(notme());
+    }
+  files.forEach(find);
+  console.log(names);
 }
 f.readdir('/home', read);
 
