@@ -3,19 +3,22 @@ const f = require('fs');
 const app = exp();
 app.listen(3618);
 
-const read = (err, files)=>{
-  let names = '';
-  const find = (e)=>{
-    if (e !=='kinue'){
-    names = names + e + '\n';
+
+const handle=(req, res)=>{
+
+  const read = (err, files)=>{
+    let names = '';
+    const find = (e)=>{
+      if (e !=='kinue'){
+        names = names + e + '\n';
+      }
     }
+
+    files.forEach(find);
+
+    res.send(names);
   }
 
-  files.forEach(find);
-
-  const handle=(req, res)=>{
-  res.send(names);
-  }
-app.get('/hello',handle);
+  f.readdir('/home', read);
 }
-f.readdir('/home', read);
+app.get('/hello',handle);
