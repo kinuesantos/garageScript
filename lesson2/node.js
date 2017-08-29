@@ -3,12 +3,12 @@
 const f = require('fs');
 
 const read = (err,files)=>{
-    let names = '';
-    const find= (e)=>{
-      if(e !=='kinue'){
-        names = names + e + '\n';
-      }
+  let names = '';
+  const find= (e)=>{
+    if(e !=='kinue'){
+      names = names + e + '\n';
     }
+  }
   files.forEach(find);
   console.log(names);
 }
