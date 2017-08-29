@@ -1,4 +1,4 @@
-//print out all the files in home - student names except for Kinue.
+//print out all the files in home - student names except for Kinue
 
 const f = require('fs');
 
