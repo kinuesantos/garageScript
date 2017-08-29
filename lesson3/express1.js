@@ -8,9 +8,9 @@ const handle=(req, res)=>{
 
   const read = (err, files)=>{
     let names = '';
-    const find = (e)=>{
-      if (e !=='kinue'){
-        names = names + e + '\n';
+    const find = (eachname)=>{
+      if (eachname !=='kinue'){
+        names = names + eachname + '\n';
       }
     }
 
