@@ -1,3 +1,4 @@
+//this function will test program1.js
 const sum= require('./program1.js');
 
 const test=(input1,input2,total)=>{
