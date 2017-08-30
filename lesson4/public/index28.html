@@ -6,18 +6,18 @@
 </head>
 <body>
 
-  Name:<input type='text' id="thenames"/>
-  Comment:<input type='text' id="thecomments"/>
-  <input type='submit' id="submitbutton"/>
+  Name:<input type='text' id="theNames"/>
+  Comment:<input type='text' id="theComments"/>
+  <input type='submit' id="submitButton"/>
     
     <script>
-      const button = document.getElementById('submitbutton');
+      const button = document.getElementById('submitButton');
       button.onclick = () =>{
-      const name = document.getElementById('thenames').value;
-      const comment = document.getElementById('thecomments').value;
-      const xhttp = new XMLHttpRequest();
-      xhttp.open('GET', `/send?thenames=${name}&thecomments=${comment}`);
-      xhttp.send();
+        const name = document.getElementById('theNames').value;
+        const comment = document.getElementById('theComments').value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', `/send?theNames=${name}&theComments=${comment}`);
+        xhttp.send();
       }
     </script>
 </body>
