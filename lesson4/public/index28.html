@@ -5,10 +5,20 @@
   <title></title>
 </head>
 <body>
-  <form action= '/send'>
-  Name:<input type='text' name="thenames"/>
-  Comment:<input type='text' name="thecomments"/>
-  <input type='submit'/>
-  </form>
+
+  Name:<input type='text' id="theNames"/>
+  Comment:<input type='text' id="theComments"/>
+  <input type='submit' id="submitButton"/>
+    
+    <script>
+      const button = document.getElementById('submitButton');
+      button.onclick = () =>{
+        const name = document.getElementById('theNames').value;
+        const comment = document.getElementById('theComments').value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', `/send?theNames=${name}&theComments=${comment}`);
+        xhttp.send();
+      }
+    </script>
 </body>
 </html>
