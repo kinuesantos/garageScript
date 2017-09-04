@@ -5,13 +5,12 @@
     <title>Chatroom</title>
   </head>
   <body>
-
     Name:<input type='text' id="theNames"/>
     Comment:<input type='text' id="theComments"/>
     <input type='submit' id="submitButton"/>
 
     <div>
-      <p id='messages'></p>
+      <pre id='messages'></pre>
     </div>
 
     <script>
@@ -25,7 +24,8 @@ button.onclick = () =>{
   xhttp.send(JSON.stringify({
     name,
     comment
-  }));
+  })
+  );
 }
 //get storing.txt file every second and display it on the page
 
