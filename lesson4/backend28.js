@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.post('/send',(req,res)=>{
-  const firstdata = req.body.name;
-  const seconddata = req.body.comment;
-  fs.appendFile('/home/kinue/garageScript/lesson4/public/storing.txt',`${firstdata} : ${seconddata}\n`)
+  const firstData = req.body.name;
+  const secondData = req.body.comment;
+  fs.appendFile('/home/kinue/garageScript/lesson4/public/storing.txt',`${firstData} : ${secondData}\n`)
 });
