@@ -5,13 +5,12 @@
     <title>Chatroom</title>
   </head>
   <body>
-
     Name:<input type='text' id="theNames"/>
     Comment:<input type='text' id="theComments"/>
     <input type='submit' id="submitButton"/>
 
     <div>
-      <p id='messages'></p>
+      <pre id='messages'></pre>
     </div>
 
     <script>
@@ -20,8 +19,13 @@ button.onclick = () =>{
   const name = document.getElementById('theNames').value;
   const comment = document.getElementById('theComments').value;
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `/send?userNames=${name}&userComments=${comment}`);
-  xhttp.send();
+  xhttp.open('POST', `/send`);
+  xhttp.setRequestHeader('content-type', 'application/json');
+  xhttp.send(JSON.stringify({
+    name,
+    comment
+  })
+  );
 }
 //get storing.txt file every second and display it on the page
 
