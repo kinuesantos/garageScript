@@ -9,5 +9,5 @@ app.use(bodyParser.json());
 app.post('/send',(req,res)=>{
   const firstdata = req.body.name;
   const seconddata = req.body.comment;
-  fs.appendFile('/home/kinue/garageScript/lesson4/public/storing.txt', firstdata + ':' + seconddata + '\n')
+  fs.appendFile('/home/kinue/garageScript/lesson4/public/storing.txt',`${firstdata} : ${seconddata}\n`)
 });
