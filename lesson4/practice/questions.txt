@@ -1,0 +1,7 @@
+Create a function:
+
+1. That takes an array of numbers and returns the sum.
+2. That takes an array of numbers, and one number. And return how many times the number shows up in the array.
+3. That takes a number (x) and a string, and returns the string repeated x number of times.
+4. That takes an array and finds the biggest number.
+5. " the smallest number.
