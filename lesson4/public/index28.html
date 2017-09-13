@@ -11,19 +11,43 @@
 
     <div>
       <pre id='messages'></pre>
+      <video id='video1'></video>
+      <canvas width= 300 height= 300 id='canvas1'></canvas>
     </div>
 
     <script>
+
+//camara permission
+
+const video = document.getElementById('video1');
+navigator.mediaDevices.getUserMedia({
+  video: true,
+  audio: false
+}).then((mediaStream)=>{
+  video.srcObject = mediaStream;
+  video.play();
+}).catch((err)=>{
+  console.log(err);
+})
+
+//submit name, comment, take a picture/canvas and send to a file.
+
 const button = document.getElementById('submitButton');
 button.onclick = () =>{
   const name = document.getElementById('theNames').value;
   const comment = document.getElementById('theComments').value;
+  const picture = document.getElementById('canvas1');
+  const tools = picture.getContext('2d');
+  tools.drawImage(video, 0, 0);
+  const picData= picture.toDataURL();
+  const newPicData= picData.replace('data:image/png;base64,', '');
   const xhttp = new XMLHttpRequest();
   xhttp.open('POST', `/send`);
   xhttp.setRequestHeader('content-type', 'application/json');
   xhttp.send(JSON.stringify({
     name,
-    comment
+    comment,
+    newPicData
   })
   );
 }
@@ -34,6 +58,7 @@ const getStoringFile = () =>{
   xhttp.open('GET', `/storing.txt`);
   xhttp.onreadystatechange = ()=>{
     if(xhttp.responseText){
+      console.log('xhttp.responseText',xhttp.responseText);
       const msg = document.getElementById('messages');
       msg.innerHTML = xhttp.responseText;
     }
