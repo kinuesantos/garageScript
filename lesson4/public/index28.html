@@ -58,7 +58,6 @@ const getStoringFile = () =>{
   xhttp.open('GET', `/storing.txt`);
   xhttp.onreadystatechange = ()=>{
     if(xhttp.responseText){
-      console.log('xhttp.responseText',xhttp.responseText);
       const msg = document.getElementById('messages');
       msg.innerHTML = xhttp.responseText;
     }
