@@ -13,6 +13,7 @@
       <pre id='messages'></pre>
       <video id='video1'></video>
       <canvas width= 300 height= 300 id='canvas1'></canvas>
+      <pre id = 'memes'></pre>
     </div>
 
     <script>
@@ -44,30 +45,20 @@ button.onclick = () =>{
   const xhttp = new XMLHttpRequest();
   xhttp.open('POST', `/send`);
   xhttp.setRequestHeader('content-type', 'application/json');
+  xhttp.onreadystatechange= ()=>{
+    if(xhttp.responseText){
+      const pic2 = document.getElementById('memes');
+      pic2.innerHTML = xhttp.responseText;
+    }
+  }
   xhttp.send(JSON.stringify({
     name,
     comment,
     newPicData
-  })
-  );
+  }));
 }
-//get storing.txt file every second and display it on the page
+//get storing.txt file every second and display it on the page ERASED!
 
-const getStoringFile = () =>{
-  const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `/storing.txt`);
-  xhttp.onreadystatechange = ()=>{
-    if(xhttp.responseText){
-      console.log('xhttp.responseText',xhttp.responseText);
-      const msg = document.getElementById('messages');
-      msg.innerHTML = xhttp.responseText;
-    }
-
-  }
-  xhttp.send();
-}
-
-setInterval(getStoringFile, 1000);
     </script>
   </body>
 </html>
