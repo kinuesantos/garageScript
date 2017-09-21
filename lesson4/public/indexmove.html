@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div>
+  <button id = 'up'>UP</button>
+  <button id = 'down'>DOWN</button>
+  <button id = 'right'>RIGHT</button>
+  <button id = 'left'>LEFT</button>
+  <div id = 'pic'>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnfpzoD-_HTIGH37ncMqaYiqjOI4MrXSPSTCyAHbJdSsc6O9vP">
+  </div>
+  </div>
+  <script>
+//Going up
+    const goUp = document.getElementById('up');
+    goUp.onclick = ()=>{
+      const t = 'up'
+      const xhttp = new XMLHttpRequest();
+      xhttp.open('GET',`/moving?a=${t}`);
+      xhttp.onreadystatechange = () =>{
+        if(xhttp.responseText){
+          const picture = document.getElementById('pic').style.marginTop=xhttp.responseText + 'px';
+
+        }
+      }
+      xhttp.send();
+
+    }
+//Going down
+  
+   const goDown = document.getElementById('down');
+   goDown.onclick = ()=>{
+   const f = 'down';
+   const xhttp = new XMLHttpRequest();
+   xhttp.open('GET',`/moving?a=${f}`);
+   xhttp.onreadystatechange = ()=>{
+    if(xhttp.responseText){
+      const picture = document.getElementById('pic').style.marginTop=xhttp.responseText + 'px';
+    }
+   }
+   xhttp.send();
+   }
+// Going right
+
+  const goRight = document.getElementById('right');
+  goRight.onclick= ()=>{
+    const s = 'right';
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', `/moving?a=${s}`);
+    xhttp.onreadystatechange = ()=>{
+      if(xhttp.responseText){
+        const picture = document.getElementById('pic').style.marginLeft=xhttp.responseText + 'px';
+      }
+    }
+    xhttp.send();
+  }
+//Going left
+  const goLeft = document.getElementById('left');
+  goLeft.onclick = () =>{
+    const r = 'left';
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', `/moving?a=${r}`);
+    xhttp.onreadystatechange = ()=>{
+      if(xhttp.responseText){
+        const picture = document.getElementById('pic').style.marginLeft=xhttp.responseText + 'px';
+      }
+    }
+    xhttp.send();
+  }
+
+//update the location every second vertical
+const currentLocationV = ()=>{
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('GET',`/currentv`);
+  xhttp.onreadystatechange = ()=>{
+    if(xhttp.responseText){
+    console.log(xhttp.responseText);
+      const picture = document.getElementById('pic').style.marginTop=xhttp.responseText + 'px';
+    }
+  }
+  xhttp.send();
+}
+window.setInterval(currentLocationV, 1000);
+
+//current location every second horizontal
+  const currentLocationH = ()=>{
+  const xhttp1 = new XMLHttpRequest();
+  xhttp1.open('GET', `/currenth`);
+  xhttp1.onreadystatechange= ()=>{
+    if(xhttp1.responseText){
+    const picture = document.getElementById('pic').style.marginLeft=xhttp1.responseText + 'px';
+    }
+  }
+  xhttp1.send();
+}
+setInterval(currentLocationH, 1000);
+
+  </script>
+
+</body>
+</html>
