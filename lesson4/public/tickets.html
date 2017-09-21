@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <p>Kinue's Tickets</p>
-  <pre id='display'></pre>
-  Tickets to buy:<input type='text' id='#Tickets'/>
-  <button type='button' id='theButton'>Buy me</button>
-  <pre id= 'display2'></pre>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <p>Kinue's Tickets</p>
+    <pre id='display'></pre>
+    Tickets to buy:<input type='text' id='Tickets'/>
+    <button type='button' id='theButton'>Buy me</button>
+    <pre id= 'display2'></pre>
 
-  <p>Saumya's Tickets</p>
-  <pre id= 'displaysya2'></pre>
-  How many tickets you need:<input type='text' id='syatick'/>
-  <input type='submit' id='syaButton'/>
-  <div>
-    <pre id= 'displaysya'></pre>
-  </div>
-  <script>
-    //send the # of tickets bought
-    const button = document.getElementById('theButton');
-    button.onclick = () =>{
-    const quantity = document.getElementById('#Tickets').value;
-    if(quantity<=0){
+    <p>Saumya's Tickets</p>
+    <pre id= 'displaysya2'></pre>
+    How many tickets you need:<input type='text' id='syatick'/>
+    <input type='submit' id='syaButton'/>
+    <div>
+      <pre id= 'displaysya'></pre>
+    </div>
+    <script>
+//send the # of tickets bought
+const button = document.getElementById('theButton');
+button.onclick = () =>{
+  const quantity = document.getElementById('Tickets').value;
+  if(quantity<=0){
     alert('Not valid entry');
-    }else{
+  }else{
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', `/santos?number=${quantity}`);
     xhttp.onreadystatechange = () =>{
@@ -37,22 +37,10 @@
       }
     }
     xhttp.send();
-    }
-    }
-    
-    //get update every second
-    const unseg= ()=>{
-      const xhttp1 = new XMLHttpRequest();
-      xhttp1.open('GET', `/update`);
-      xhttp1.send();
-      xhttp1.onreadystatechange = () =>{
-        if(xhttp1.responseText){         
-          const show = document.getElementById('display');
-          show.innerHTML = xhttp1.responseText;
-        }
-      }
-    }
-    setInterval(unseg, 1000);
+  }
+}
+
+//get update every second
 //SYA code
 //Button functionality to send data.
 
@@ -63,16 +51,16 @@ button2.onclick = () =>{
   xhttp2.open('GET', `http://sz.llip.life/buy?amnt=${tickets2}`);
   xhttp2.onreadystatechange = () =>{
     if(xhttp2.responseText){
-    const show2 = document.getElementById('displaysya');
-    show2.innerHTML = xhttp2.responseText;
+      const show2 = document.getElementById('displaysya');
+      show2.innerHTML = xhttp2.responseText;
     }
   }
-xhttp2.send()
+  xhttp2.send()
 }
 
 //Function to update the number of Tickets
 
-const update2 = () =>{
+const unseg = () =>{
   const xhttp3 = new XMLHttpRequest();
   xhttp3.open('GET', `http://sz.llip.life/tickets`);
   xhttp3.onreadystatechange = () =>{
@@ -82,9 +70,19 @@ const update2 = () =>{
       current2.innerHTML = xhttp3.responseText;
     }
   }
-xhttp3.send();
+  xhttp3.send();
+
+  const xhttp1 = new XMLHttpRequest();
+  xhttp1.open('GET', `/update`);
+  xhttp1.send();
+  xhttp1.onreadystatechange = () =>{
+    if(xhttp1.responseText){         
+      const show = document.getElementById('display');
+      show.innerHTML = xhttp1.responseText;
+    }
+  }
 }
-setInterval(update2, 1000);
-  </script>
-</body>
+setInterval(unseg, 1000);
+    </script>
+  </body>
 </html>
