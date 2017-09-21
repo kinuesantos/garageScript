@@ -3,6 +3,7 @@ const app = express();
 app.listen(3618);
 app.use(express.static('public'));
 
+
 let vertical = 0;
 let horizontal = 0;
 
