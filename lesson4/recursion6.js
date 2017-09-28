@@ -2,7 +2,6 @@
 
 const removeExtra= (a,i=0, prev='',result='')=>{
   if(i==a.length){
-    console.log(result);
     return result;
   }
   if(a[i]==prev){
@@ -13,4 +12,4 @@ const removeExtra= (a,i=0, prev='',result='')=>{
   return removeExtra(a, i+1, prev,result);
 }
 
-removeExtra('hellllo');
+console.log(removeExtra('hellllo'));
