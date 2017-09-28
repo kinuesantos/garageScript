@@ -1,13 +1,11 @@
 //create a createString function that takes (5,'hi') -> 'hihihihihi'
 
-let c = '';
-const createString = (a,b, i=0)=>{
+const createString = (a,b, i=0, c='')=>{
   if(i==a){
     console.log(c);
     return c;
   }
-  c = c + b;
-  return createString(a,b,i+1)
+  return createString(a,b,i+1,c=c+b)
 }
 
 createString(5,'hi');
