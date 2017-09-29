@@ -2,10 +2,9 @@
 
 const createString = (a,b, i=0, c='')=>{
   if(i==a){
-    console.log(c);
     return c;
   }
   return createString(a,b,i+1,c=c+b)
 }
 
-createString(5,'hi');
+console.log(createString(5,'hi'));
