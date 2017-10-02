@@ -1,6 +1,6 @@
 //find the biggest number in the array. Max([1,9,2]) -> 9
 
-const max=(a, i=0, biggest=0)=>{
+const max=(a, i=0, biggest=a[i])=>{
   if(i==a.length){
   return biggest;
   }
