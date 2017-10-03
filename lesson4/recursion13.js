@@ -10,4 +10,4 @@ const compareArr = (a,b, i=0)=>{
   return compareArr(a,b, i+1);
 }
 }
-console.log(compareArr([1,2,4],[1,2,3]));
+console.log(compareArr([1,3],[1,2,3,4]));
